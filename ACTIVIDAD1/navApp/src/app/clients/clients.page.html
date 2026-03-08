@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"> <ion-back-button defaultHref="/tabs/clients"></ion-back-button> </ion-buttons>
+    <ion-title>Listado de Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item [routerLink] = "['/client', 1]" button>
+      <ion-avatar slot="start">
+        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Juan Pérez</h2>
+        <p>Cliente VIP - Madrid</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item [routerLink] = "['/client', 2]" button>
+      <ion-avatar slot="start">
+        <img src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>María García</h2>
+        <p>Cliente Frecuente - Barcelona</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

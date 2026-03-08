@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"> <ion-back-button defaultHref="/tabs/reservations"></ion-back-button> </ion-buttons>
+    <ion-title>Reservas Activas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item (click)="nuevaReserva()" button>
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      <ion-label>
+        <h2>Reserva 1</h2>
+        <p>Fecha: 15/03/2026 - 21:00h</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-item (click)="nuevaReserva()" button>
+      <ion-icon name="calendar-outline" slot="start"></ion-icon>
+      <ion-label>
+        <h2>Reserva 2</h2>
+        <p>Fecha: 16/03/2026 - 14:00h</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
