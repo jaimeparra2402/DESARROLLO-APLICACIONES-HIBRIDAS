@@ -13,6 +13,12 @@ import { NavController } from '@ionic/angular/standalone';
 })
 export class ReservationsPage implements OnInit {
 
+  reservations = [
+    { id: 1, title: 'Reserva 1', date: '15/03/2026', time: '21:00' },
+    { id: 2, title: 'Reserva 2', date: '16/03/2026', time: '14:00' },
+    { id: 3, title: 'Reserva 3', date: '17/03/2026', time: '18:30' },
+  ];
+
   constructor(private navCtrl: NavController) {}
 
   ngOnInit() {

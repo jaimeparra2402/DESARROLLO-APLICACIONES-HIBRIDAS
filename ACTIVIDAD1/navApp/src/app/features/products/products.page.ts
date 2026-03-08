@@ -13,6 +13,30 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonList, IonItem
 })
 export class ProductsPage implements OnInit {
 
+  products = [
+    { 
+      id: 1,
+      name: 'Producto A',
+      price: 25.00,
+      stock: 10,
+      image: 'https://ionicframework.com/docs/img/demos/thumbnail.svg'
+    },
+    { 
+      id: 2,
+      name: 'Producto B',
+      price: 12.50,
+      stock: 5,
+      image: 'https://ionicframework.com/docs/img/demos/thumbnail.svg'
+    },
+    { 
+      id: 3,
+      name: 'Producto C',
+      price: 40.00,
+      stock: 3,
+      image: 'https://ionicframework.com/docs/img/demos/thumbnail.svg'
+    },
+  ];
+
   constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
@@ -22,7 +46,8 @@ export class ProductsPage implements OnInit {
     localStorage.clear();
     sessionStorage.clear();
 
-    this.navCtrl.navigateRoot('/login', { replaceUrl: true });
-  }
+    window.location.replace('/login'); 
+/*     this.navCtrl.navigateRoot('/login', { replaceUrl: true });
+ */  }
 
 }

@@ -4,28 +4,28 @@ export const routes: Routes = [
 
   {
     path: 'login',
-    loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
+    loadComponent: () => import('./features/login/login.page').then( m => m.LoginPage)
   },
 
   {
     path: 'tabs',
-    loadComponent: () => import('./tabs/tabs.page').then(m => m.TabsPage),
+    loadComponent: () => import('./features/tabs/tabs.page').then(m => m.TabsPage),
     children: [
       {
         path: 'clients',
-        loadComponent: () => import('./clients/clients.page').then(m => m.ClientsPage),
+        loadComponent: () => import('./features/clients/clients.page').then(m => m.ClientsPage),
       },
       {
         path: 'reservations', 
-        loadComponent: () => import('./reservations/reservations.page').then(m => m.ReservationsPage),
+        loadComponent: () => import('./features/reservations/reservations.page').then(m => m.ReservationsPage),
       },
       {
         path: 'products',
-        loadComponent: () => import('./products/products.page').then(m => m.ProductsPage),
+        loadComponent: () => import('./features/products/products.page').then(m => m.ProductsPage),
       },
       {
         path: '',
-        redirectTo: 'tabs/reservations', 
+        redirectTo: '/tabs/reservations', 
         pathMatch: 'full',
       },
     ],
@@ -33,12 +33,12 @@ export const routes: Routes = [
 
    {
     path: 'client/:id',
-    loadComponent: () => import('./client/client.page').then( m => m.ClientPage)
+    loadComponent: () => import('./features/client/client.page').then( m => m.ClientPage)
   },
 
   {
     path: 'reserve',
-    loadComponent: () => import('./reserve/reserve.page').then( m => m.ReservePage)
+    loadComponent: () => import('./features/reserve/reserve.page').then( m => m.ReservePage)
   },
 
   {

@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"> <ion-back-button defaultHref="/tabs/products"></ion-back-button> </ion-buttons>
+    <ion-title>Catálogo de Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <ion-thumbnail slot="start">
+        <img [src]="product.image" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ product.name }}</h2>
+        <p>Precio: {{ product.price | currency:'EUR' }}</p>
+      </ion-label>
+      <ion-note slot="end">Stock: {{ product.stock }}</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" color="danger" (click)="logout()">
+      Cerrar sesión
+  </ion-button>
+</ion-content>

@@ -13,6 +13,12 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonAvatar, IonLi
 })
 export class ClientsPage implements OnInit {
 
+  clients = [
+    { id: 1, name: 'Juan Pérez', description: 'Cliente VIP - Madrid', avatar: 'https://ionicframework.com/docs/img/demos/avatar.svg' },
+    { id: 2, name: 'María García', description: 'Cliente Frecuente - Barcelona', avatar: 'https://ionicframework.com/docs/img/demos/avatar.svg' },
+    { id: 3, name: 'Luis Fernández', description: 'Cliente Nuevo - Valencia', avatar: 'https://ionicframework.com/docs/img/demos/avatar.svg' },
+  ];
+
   constructor() { }
 
   ngOnInit() {
