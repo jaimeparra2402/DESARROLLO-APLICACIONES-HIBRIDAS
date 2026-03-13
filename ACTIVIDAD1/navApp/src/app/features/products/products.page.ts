@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonList, IonItem, IonThumbnail, IonNote, IonButtons, IonBackButton, IonButton } from '@ionic/angular/standalone';
+import { IonContent, IonHeader, IonTitle, IonToolbar, IonLabel, IonList, IonItem, IonThumbnail, IonNote, IonButtons, IonBackButton, IonButton, IonIcon } from '@ionic/angular/standalone';
+import { logOutOutline } from 'ionicons/icons';
+import { addIcons } from 'ionicons';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
   standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonLabel, IonList, IonItem, IonThumbnail, IonNote, IonButtons, IonBackButton, IonButton]
+  imports: [IonIcon, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule, IonLabel, IonList, IonItem, IonThumbnail, IonNote, IonButtons, IonBackButton, IonButton]
 })
 export class ProductsPage implements OnInit {
 
@@ -32,7 +34,7 @@ export class ProductsPage implements OnInit {
       id: 3,
       name: 'Producto C',
       price: 40.00,
-      stock: 3,
+      stock: 0,
       image: 'https://ionicframework.com/docs/img/demos/thumbnail.svg'
     },
   ];
@@ -40,14 +42,16 @@ export class ProductsPage implements OnInit {
   constructor(private navCtrl: NavController) { }
 
   ngOnInit() {
-  }
+  addIcons({ 
+    logOutOutline  
+  });
+}
 
   logout(){
     localStorage.clear();
     sessionStorage.clear();
 
-    window.location.replace('/login'); 
-/*     this.navCtrl.navigateRoot('/login', { replaceUrl: true });
- */  }
+    this.navCtrl.navigateRoot('/login', { replaceUrl: true });
+  }
 
 }

@@ -1,8 +1,14 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start"> <ion-back-button defaultHref="/tabs/products"></ion-back-button> </ion-buttons>
-    <ion-title>Catálogo de Productos</ion-title>
-  </ion-toolbar>
+  <ion-toolbar>
+    <ion-title>Productos</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>  
 </ion-header>
 
 <ion-content>
@@ -13,13 +19,15 @@
       </ion-thumbnail>
       <ion-label>
         <h2>{{ product.name }}</h2>
-        <p>Precio: {{ product.price | currency:'EUR' }}</p>
+        <p> {{ product.price | currency:'EUR' }}</p>
       </ion-label>
-      <ion-note slot="end">Stock: {{ product.stock }}</ion-note>
+      <ion-note slot="end" [ngClass]="{
+          'in-stock': product.stock > 5,
+          'low-stock': product.stock > 0 && product.stock <= 5,
+          'out-stock': product.stock === 0
+        }">
+        {{ product.stock > 0 ? product.stock + ' en stock' : 'Sin stock' }}
+      </ion-note>
     </ion-item>
   </ion-list>
-
-  <ion-button expand="block" color="danger" (click)="logout()">
-      Cerrar sesión
-  </ion-button>
 </ion-content>

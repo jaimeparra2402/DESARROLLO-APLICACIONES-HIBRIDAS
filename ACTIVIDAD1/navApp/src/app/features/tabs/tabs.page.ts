@@ -10,6 +10,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './tabs.page.html',
   standalone: true,
   imports: [IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel, RouterLink],
+  styleUrl: './tabs.page.scss',
 })
 export class TabsPage implements OnInit {
   constructor() {}

@@ -1,0 +1,27 @@
+
+ion-tab-bar{
+--background: var(--color-primary);
+}
+
+ion-tab-button {
+  --color: var(--color-grey);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+ion-tab-button[aria-selected="true"]{
+  --background: var(--color-primary);
+  --color: var(--color-grey);
+}
+
+ion-tab-button ion-icon, ion-tab-button ion-label {
+  --color: inherit;
+}
+
+ion-label{
+  --color-selected: var(--color-blue);
+}
+
+ion-label:hover{
+  --background: var(--color-secondary);
+} 

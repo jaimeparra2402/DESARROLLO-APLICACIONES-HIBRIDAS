@@ -1,13 +1,13 @@
 <ion-header>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/reservations"></ion-back-button>
+      <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>Reservar</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content>
 
   <ion-card>
     <ion-card-header>
@@ -22,7 +22,12 @@
         <ion-input placeholder="Introduce el nombre"></ion-input>
       </ion-item>
 
-      <ion-button expand="block" color="success" class="ion-margin-top">
+      <ion-item>
+        <ion-label position="stacked">Fecha</ion-label>
+        <ion-datetime display-format="DD/MM/YYYY" placeholder="Selecciona la fecha"></ion-datetime>
+      </ion-item>
+
+      <ion-button class="btn-confirm" [routerLink]="'/tabs/reservations'">
         Confirmar Reserva
       </ion-button>
 

@@ -1,0 +1,14 @@
+ion-button{
+  --background: var(--color-button);
+  --color: var(--color-white);
+  --border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 24px; 
+  display: block;
+  margin: 16px auto; 
+
+  &:hover {
+    --background: var(--color-button-hover);
+  }
+}
