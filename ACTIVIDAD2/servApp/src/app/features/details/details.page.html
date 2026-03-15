@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Detalle</ion-title>
+
+    <ion-buttons slot="end">
+      @if (movieService.currentMovie(); as movie) {
+        <ion-button (click)="toggleFav(movie)">
+          <ion-icon
+            slot="icon-only"
+            [name]="movieService.isFavorite(movie.imdbID) ? 'heart' : 'heart-outline'"
+            [color]="movieService.isFavorite(movie.imdbID) ? 'danger' : 'light'">
+          </ion-icon>
+        </ion-button>
+      }
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  @if (movieService.currentMovie(); as movie) {
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-subtitle>
+          <ion-badge color="tertiary">{{ movie.Year }}</ion-badge>
+          <ion-badge color="medium">{{ movie.Genre }}</ion-badge>
+          <ion-badge color="secondary">{{ movie.Type }}</ion-badge>
+        </ion-card-subtitle>
+
+        <ion-card-title>{{ movie.Title }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-list lines="none">
+
+          <ion-item>
+            <ion-label>
+              <strong>Director:</strong>
+              <p>{{ movie.Director }}</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>
+              <strong>Actores:</strong>
+              <p>{{ movie.Actors }}</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>
+              <strong>Duración:</strong>
+              <p>{{ movie.Runtime }}</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>
+              <strong>Fecha de estreno:</strong>
+              <p>{{ movie.Released }}</p>
+            </ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>
+              <strong>Sinopsis:</strong>
+              <p>{{ movie.Plot }}</p>
+            </ion-label>
+          </ion-item>
+
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+  } @else {
+    <div class="loader">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Buscando información...</p>
+    </div>
+  }
+</ion-content>

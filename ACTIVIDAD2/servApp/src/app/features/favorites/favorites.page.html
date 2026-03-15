@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Mis Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    @for (movie of movieService.favorites(); track movie.imdbID) {
+
+      <ion-item-sliding>
+
+        <ion-item [routerLink]="['/details', movie.imdbID]">
+          <ion-thumbnail slot="start">
+            <img
+              [src]="movie.Poster !== 'N/A' ? movie.Poster : 'assets/no-image.png'" />
+          </ion-thumbnail>
+
+          <ion-label>
+            <h2>{{ movie.Title }}</h2>
+            <p>{{ movie.Year }}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="removeFav(movie)">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+
+      </ion-item-sliding>
+
+    } @empty {
+
+      <div>
+        <p class ="no-fav">No tienes películas favoritas.</p>
+      </div>
+
+    }
+  </ion-list>
+</ion-content>
