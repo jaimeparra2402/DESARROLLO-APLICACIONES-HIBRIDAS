@@ -1,0 +1,59 @@
+<app-header
+  titulo="Nueva incidencia"
+  (accionPapelera)="borrarTodo()"
+  [mostrarAtras]="true"
+  backHref="/home"
+>
+</app-header>
+
+<ion-content class="ion-padding incidencia">
+  <ion-item>
+    <ion-label position="stacked">Descripción del problema</ion-label>
+    <ion-input
+      [(ngModel)]="titulo"
+      placeholder="Descripción breve del problema"
+    ></ion-input>
+  </ion-item>
+
+  <div class="incidencia__foto">
+  @if (!fotoUri) {
+    <div class="centro-absoluto">
+      <ion-icon name="image-outline"></ion-icon>
+      <p>No se ha obtenido ninguna foto todavía</p>
+    </div>
+  } @else {
+    <div class="centro-absoluto">
+      <div class="contenedor-imagen">
+        <img [src]="fotoUri" class="foto-preview" />
+        <ion-button class="boton-borrar" (click)="borrarFoto()" color="danger">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </div>
+
+      <div class="gps-info">
+        <h3 class="incidencia__gps-title">Ubicación</h3>
+        <div class="gps-fila">
+          <b>Latitud:</b> <span>{{ latitud }}</span>
+        </div>
+        <div class="gps-fila">
+          <b>Longitud:</b> <span>{{ longitud }}</span>
+        </div>
+      </div>
+    </div>
+  }
+</div>
+
+  <ion-button expand="block" color="secondary" (click)="tomarFotoYPosicion()">
+    <ion-icon slot="start" name="camera"></ion-icon>
+    Tomar Foto y Ubicación
+  </ion-button>
+
+  <ion-button
+    expand="block"
+    color="primary"
+    (click)="guardar()"
+    [disabled]="!fotoUri"
+  >
+    Guardar Incidencia
+  </ion-button>
+</ion-content>

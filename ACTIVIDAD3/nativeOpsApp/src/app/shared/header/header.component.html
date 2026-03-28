@@ -1,0 +1,21 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      @if (mostrarAtras) {
+        <ion-back-button [defaultHref]="backHref"></ion-back-button>
+      }
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">{{ titulo }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button
+        (click)="onBorrar()"
+        class="logout-button"
+        title="Borrar incidencias"
+      >
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

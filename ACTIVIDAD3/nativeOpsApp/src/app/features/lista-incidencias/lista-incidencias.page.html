@@ -1,0 +1,15 @@
+<app-header 
+  titulo="Nueva incidencia" 
+  (accionPapelera)="borrarTodo()"
+  [mostrarAtras]="true" 
+  backHref="/home">
+</app-header>
+
+<ion-content>
+  <app-data-table
+    [data]="incidenciasAdaptadas"
+    [columns]="columnas"
+    (clicked)="mostrarAvisoConstruccion()"
+  >
+  </app-data-table>
+</ion-content>
