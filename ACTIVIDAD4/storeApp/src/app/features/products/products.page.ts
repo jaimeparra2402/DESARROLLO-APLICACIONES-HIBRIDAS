@@ -1,20 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonicModule, LoadingController, ViewWillEnter } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
+import { ProductsService } from '../../core/services/products.service';
+import { add, logOutOutline } from 'ionicons/icons';
+import { addIcons } from 'ionicons';
+import { Product } from 'src/app/core/models/product.model';
 
 @Component({
   selector: 'app-products',
+  standalone: true,
   templateUrl: './products.page.html',
   styleUrls: ['./products.page.scss'],
-  standalone: true,
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonicModule, CommonModule],
 })
-export class ProductsPage implements OnInit {
+export class ProductsPage {
+  public productService = inject(ProductsService);
+  private authService = inject(AuthService);
+  private router = inject(Router);
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    addIcons({ add, logOutOutline });
   }
 
+  goToAddProduct() {
+    this.router.navigate(['/add-product']);
+  }
+
+  showDetails(product: Product) {
+    this.router.navigate(['/details-product', product.id]);
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
+  }
 }

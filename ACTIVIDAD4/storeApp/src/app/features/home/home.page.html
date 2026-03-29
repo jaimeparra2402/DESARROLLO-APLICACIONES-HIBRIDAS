@@ -1,20 +1,27 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Bienvenido</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="container">
+    <ion-text color="primary" class="ion-text-center">
+      <h1>Gestión de Productos</h1>
+    </ion-text>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div class="button-group">
+      <ion-button
+        expand="block"
+        (click)="goToLogin()"
+        class="ion-margin-bottom"
+      >
+        Acceder a mi Cuenta
+      </ion-button>
+
+      <ion-button expand="block" fill="outline" (click)="goToProducts()">
+        Ver Productos a la Venta
+      </ion-button>
+    </div>
   </div>
 </ion-content>

@@ -2,24 +2,17 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { ProductsService } from '../../core/services/products.service';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-public-products',
   standalone: true,
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  templateUrl: './public-products.page.html',
   imports: [IonicModule, CommonModule],
 })
-export class HomePage {
+export class PublicProductsPage {
+  public productService = inject(ProductsService);
   private router = inject(Router);
 
   constructor() {}
-
-  goToLogin() {
-    this.router.navigate(['/login']);
-  }
-
-  goToProducts() {
-    this.router.navigate(['/public-products']);
-  }
 }
