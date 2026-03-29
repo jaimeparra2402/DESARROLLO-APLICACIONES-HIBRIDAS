@@ -14,13 +14,14 @@ import {
 } from '@ionic/angular';
 import { AuthService } from '../../core/services/auth.service';
 import { Router } from '@angular/router';
+import { HeaderComponent } from "src/app/shared/header/header.component";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [IonicModule, CommonModule, FormsModule, ReactiveFormsModule, HeaderComponent],
 })
 export class LoginPage {
   private authService = inject(AuthService);

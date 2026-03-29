@@ -1,0 +1,114 @@
+ion-content {
+  --background: #fdfdfd;
+}
+
+.login-header {
+  margin-top: 20px;
+
+  ion-icon {
+    font-size: 90px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  }
+
+  h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: var(--ion-color-primary);
+    margin: 0;
+    letter-spacing: -0.5px;
+  }
+
+  p {
+    color: #888;
+    font-size: 0.95rem;
+    margin-top: 5px;
+  }
+}
+
+form {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+ion-item {
+  --background: transparent;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --padding-start: 0;
+  margin-bottom: 4px;
+
+  &.item-has-focus {
+    --border-color: var(--ion-color-primary);
+    ion-icon {
+      color: var(--ion-color-primary);
+    }
+  }
+
+  ion-label {
+    font-weight: 500;
+  }
+}
+
+.error-container {
+  text-align: left;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  animation: fadeIn 0.3s ease-in;
+
+  small {
+    font-weight: 600;
+  }
+}
+
+ion-button {
+  --background: var(--ion-color-primary);
+  --background-activated: var(--ion-color-primary-shade);
+  margin-top: 20px;
+  height: 52px;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(var(--ion-color-primary-rgb), 0.3);
+
+  &[disabled] {
+    opacity: 0.5;
+  }
+}
+
+.secondary-link {
+  color: var(--ion-color-secondary);
+  font-weight: 700;
+  margin-top: 25px;
+  display: block;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+
+  &:active {
+    color: var(--ion-color-secondary-shade);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  ion-content {
+    --background: #121212;
+  }
+
+  .login-header p {
+    color: #aaa;
+  }
+
+  ion-item {
+    --border-color: rgba(255, 255, 255, 0.1);
+  }
+}

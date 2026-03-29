@@ -1,25 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/products"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Detalles del Producto</ion-title>
-
-    <ion-buttons slot="end">
-      <ion-button color="danger" (click)="confirmDelete()">
-        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header
+  title="Detalles del Producto"
+  [backButton]="true"
+  defaultHref="/products"
+  [showDelete]="true"
+  (onDelete)="confirmDelete()"
+>
+</app-header>
 
 <ion-content class="ion-padding">
   @if (product()) {
   <div class="product-card">
-    <img [src]="product()?.imageUrl" class="product-image" />
+    <div class="product-image-container">
+      <img [src]="product()?.imageUrl" class="product-image" />
+    </div>
 
-    <div class="product-info">
-      <h1>{{ product()?.name }}</h1>
+      <div class="product-info">
+        <h1>{{ product()?.name }}</h1>
 
       <div class="description-section">
         <h3>Descripción</h3>

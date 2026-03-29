@@ -4,12 +4,14 @@ import { IonicModule, AlertController, ToastController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from '../../core/services/products.service';
 import { Product } from '../../core/models/product.model';
+import { HeaderComponent } from 'src/app/shared/header/header.component';
 
 @Component({
   selector: 'app-details-product',
   standalone: true,
   templateUrl: './details-product.page.html',
-  imports: [IonicModule, CommonModule],
+  styleUrl: './details-product.page.scss',
+  imports: [IonicModule, CommonModule, HeaderComponent],
 })
 export class DetailsProductPage implements OnInit {
   private route = inject(ActivatedRoute);

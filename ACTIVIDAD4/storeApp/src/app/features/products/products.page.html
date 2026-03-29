@@ -1,39 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Mis Productos</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="goToAddProduct()">
-        <ion-icon slot="icon-only" name="add"></ion-icon>
-      </ion-button>
-      <div class="vertical-divider"></div>
-      <ion-button (click)="logout()">
-        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header
+  title="Mis Productos"
+  [showAdd]="true"
+  [showLogout]="true"
+  (onAdd)="goToAddProduct()"
+  (onLogout)="logout()"
+>
+</app-header>
 
 <ion-content>
-  <ion-list>
-    @for (product of productService.products(); track product.id) {
-      <ion-item>
-        <ion-thumbnail slot="start">
-          <img [src]="product.imageUrl" />
-        </ion-thumbnail>
-        
-        <ion-label>
-          <h2>{{ product.name }}</h2>
-          <p>{{ product.description }}</p>
-        </ion-label>
-
-        <ion-button slot="end" fill="clear" (click)="showDetails(product)">
-          <ion-icon name="information-circle-outline" slot="icon-only"></ion-icon>
-        </ion-button>
-      </ion-item>
-    } @empty {
-      <ion-item>
-        <ion-label>No tienes productos registrados.</ion-label>
-      </ion-item>
-    }
-  </ion-list>
+  <app-list
+    [products]="productService.products()"
+    [showAction]="true"
+    (viewDetails)="showDetails($event)"
+    (deleteProduct)="confirmDelete($event)"
+    [canDelete]="true"
+  >
+  </app-list>
 </ion-content>

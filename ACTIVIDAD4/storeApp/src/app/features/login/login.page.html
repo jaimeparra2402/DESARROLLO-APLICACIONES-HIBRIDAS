@@ -1,11 +1,4 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Acceso</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header title="Acceso" [backButton]="true" [noBorder]="true"></app-header>
 
 <ion-content class="ion-padding ion-text-center">
   <div class="login-header ion-padding">
@@ -22,11 +15,7 @@
     <ion-item lines="filled" class="ion-margin-bottom">
       <ion-icon name="mail-outline" slot="start" color="medium"></ion-icon>
       <ion-label position="floating">Correo Electrónico</ion-label>
-      <ion-input
-        type="email"
-        formControlName="email"
-        placeholder="email@ejemplo.com"
-      ></ion-input>
+      <ion-input type="email" formControlName="email"></ion-input>
     </ion-item>
 
     <div

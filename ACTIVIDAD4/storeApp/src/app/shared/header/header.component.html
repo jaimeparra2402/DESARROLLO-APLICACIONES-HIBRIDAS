@@ -1,0 +1,25 @@
+<ion-header [class.ion-no-border]="noBorder">
+  <ion-toolbar>
+    <ion-buttons slot="start" *ngIf="backButton">
+      <ion-back-button [defaultHref]="defaultHref"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>{{ title }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button *ngIf="showAdd" (click)="onAdd.emit()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+
+      <div class="vertical-divider" *ngIf="showAdd && showLogout"></div>
+
+      <ion-button *ngIf="showLogout" (click)="onLogout.emit()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button *ngIf="showDelete" color="danger" (click)="onDelete.emit()">
+        <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>

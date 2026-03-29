@@ -13,12 +13,14 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { ProductsService } from '../../core/services/products.service';
+import { HeaderComponent } from 'src/app/shared/header/header.component';
 
 @Component({
   selector: 'app-add-product',
   standalone: true,
   templateUrl: './add-product.page.html',
-  imports: [IonicModule, CommonModule, ReactiveFormsModule],
+  styleUrl: './add-product.page.scss',
+  imports: [IonicModule, CommonModule, ReactiveFormsModule, HeaderComponent],
 })
 export class AddProductPage {
   private productService = inject(ProductsService);
