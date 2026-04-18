@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Productos</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button  data-cy="logout-btn" (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>  
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let product of products">
+      <ion-thumbnail slot="start">
+        <img [src]="product.image" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ product.name }}</h2>
+        <p> {{ product.price | currency:'EUR' }}</p>
+      </ion-label>
+      <ion-note slot="end" [ngClass]="{
+          'in-stock': product.stock > 5,
+          'low-stock': product.stock > 0 && product.stock <= 5,
+          'out-stock': product.stock === 0
+        }">
+        {{ product.stock > 0 ? product.stock + ' en stock' : 'Sin stock' }}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,78 @@
+ion-content {
+  background-color: #f4f6f8;
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  padding: 16px;
+  height: 100%;
+}
+
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  background-color: var(--color-white);
+  padding: 16px;
+  width: 100%;
+}
+
+ion-card-header {
+  ion-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #222222;
+    text-align: center; 
+  }
+
+  ion-card-subtitle {
+    font-size: 0.9rem;
+    color: #636e72;
+    text-align: center; 
+  }
+}
+
+ion-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  --border-radius: 12px;
+  --background: #f8f8f8;          
+  --highlight-color-focused: var(--color-button);
+  margin-bottom: 16px;
+
+  ion-label {
+    font-weight: 500;
+    color: #333333;
+  }
+
+  ion-input,
+  ion-datetime,
+  ion-select {
+    padding: 10px;
+    font-size: 0.9rem; 
+  }
+
+  ion-datatime {
+    margin-bottom: 2rem;
+  }
+}
+
+.btn-confirm {
+  --background: var(--color-button);
+  --background-activated: var(--color-button-hover);
+  --background-focused: var(--color-button-hover);
+  --color: var(--color-white);
+  --border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 24px; 
+  display: block;
+  margin: 16px auto 0 auto; 
+
+  &:hover {
+    --background: var(--color-button-hover);
+  }
+
+  &:active {
+    --background: darken(var(--color-button-hover), 10%);
+  }
+}
